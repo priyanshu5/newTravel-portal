@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';  
 import { HomeComponent } from './home/home.component';  
 // import { SignupComponent } from './signup/signup.component';  
-import { AdminService } from './services/admin.service';  
+import { UserService } from './services/user.service';  
 import { ProfileComponent } from './profile/profile.component';
 import { SignupsuccessComponent } from './signupsuccess/signupsuccess.component';
 import { GenerateTicketComponent } from './generate-ticket/generate-ticket.component';
@@ -87,7 +87,7 @@ import { TicketConfirmationComponent } from './ticket-confirmation/ticket-confir
   
   ],  
   providers: [  
-    AdminService  
+    UserService  
   ],  
   bootstrap: [AppComponent]  
 })  

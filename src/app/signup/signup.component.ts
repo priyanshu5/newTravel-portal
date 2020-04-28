@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';  
 import { FormGroup, FormControl, Validators } from '@angular/forms';  
-import { AdminDetail } from '../classes/admin-detail';  
-import { AdminService } from '../services/admin.service';  
+import { UserDetail } from "../classes/UserDetail";
+import { UserService } from '../services/user.service';  
 import { Router } from '@angular/router';  
   
 @Component({  
@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 })  
 export class SignupComponent implements OnInit {  
   
-  private userDetail = new AdminDetail();  
+  private userDetail = new UserDetail();  
   
-  constructor(private adminService : AdminService, private router : Router) { }  
+  constructor(private userService : UserService, private router : Router) { }  
   
   ngOnInit() {  
   }  
@@ -59,7 +59,7 @@ export class SignupComponent implements OnInit {
         this.userDetail.country = this.Country.value;
         this.userDetail.password = this.Password.value;   
   
-        this.adminService.saveAdminDetails(this.userDetail).subscribe(  
+        this.userService.saveAdminDetails(this.userDetail).subscribe(  
           response => {  
               let result = response.json();  
               console.log(result)

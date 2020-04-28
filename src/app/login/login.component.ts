@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';  
 import { FormGroup, Validators, FormControl } from '@angular/forms';  
-import { AdminDetail } from '../classes/admin-detail';  
-import { AdminService } from '../services/admin.service';  
+import { UserDetail } from "../classes/UserDetail";
+import { UserService } from '../services/user.service';  
 import { Router } from '@angular/router';  
   
 @Component({  
@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 })  
 export class LoginComponent implements OnInit {  
   
-  private adminDetail = new AdminDetail();  
+  private adminDetail = new UserDetail();  
   
-  constructor(private adminService : AdminService, private router : Router) { }  
+  constructor(private adminService : UserService, private router : Router) { }  
   
   ngOnInit() {  
     if((this.adminService.isLoggedIn()) )  
     {  
-        this.router.navigate(['/profile']);  
+        this.router.navigate(['/profile', localStorage.getItem('id')]);  
     }  
     else  
     {  
@@ -45,9 +45,10 @@ export class LoginComponent implements OnInit {
               
             if(result > 0)  
             {  
+              console.log("token -  ")
               let token = response.headers.get("Authorization");  
               console.log(token)
-  
+              // resp.headers.get('X-Token')
               localStorage.setItem("token" , token);  
               localStorage.setItem("id" , result);  
     

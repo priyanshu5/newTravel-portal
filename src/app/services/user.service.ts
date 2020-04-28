@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';  
 import { Http, RequestOptions , Headers } from '@angular/http';  
 import { Observable } from 'rxjs';  
-import { AdminDetail } from '../classes/admin-detail';  
+import { UserDetail } from "../classes/UserDetail";
 import { Router } from '@angular/router';  
   
 import { JwtHelperService } from '@auth0/angular-jwt';  
@@ -10,7 +10,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable({  
   providedIn: 'root'  
 })  
-export class AdminService {  
+export class UserService {  
   
   // Base URL  
   // private  baseUrl = "http://localhost:3000/user/";
@@ -23,13 +23,14 @@ export class AdminService {
   
   constructor(private http: Http, private router : Router) { }  
   
-  saveAdminDetails(adminDetail : AdminDetail) : Observable<any>  
+  saveAdminDetails(adminDetail : UserDetail) : Observable<any>  
   {  
       let url = this.baseUrl + "user/register";  
       return this.http.post(url,adminDetail);  
+
   }  
   
-  login(adminDetail : AdminDetail) : Observable<any>  
+  login(adminDetail : UserDetail) : Observable<any>  
   {  
       let url = this.baseUrl + "user/login";  
       return this.http.post(url, adminDetail);  
