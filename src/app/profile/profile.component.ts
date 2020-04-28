@@ -16,11 +16,11 @@ export class ProfileComponent implements OnInit {
   
   private dataRequest = false;  
   
-  constructor(private adminService  : AdminService, private route : ActivatedRoute, private router : Router) { }  
+  constructor(private userService  : UserService, private route : ActivatedRoute, private router : Router) { }  
   
   ngOnInit() {  
   
-    if((this.adminService.isLoggedIn()) )  
+    if((this.userService.isLoggedIn()) )  
     {  
       this.route.paramMap.subscribe(params => {  
         this.adminId =+ params.get('adminId');  
@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
   
       this.dataRequest = true;  
   
-      this.adminService.getAdminDetail(this.adminId).subscribe(  
+      this.userService.getAdminDetail(this.adminId).subscribe(  
           response => {  
   
               let result = response.json();  

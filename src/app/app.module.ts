@@ -22,7 +22,7 @@ import { SignupsuccessComponent } from './signupsuccess/signupsuccess.component'
 import { GenerateTicketComponent } from './generate-ticket/generate-ticket.component';
 import { ViewTicketComponent } from './view-ticket/view-ticket.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminLoginComponent } from './user-login/admin-login.component';
 import { TicketConfirmationComponent } from './ticket-confirmation/ticket-confirmation.component';  
   
 @NgModule({  
